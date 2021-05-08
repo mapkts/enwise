@@ -31,16 +31,43 @@ function! enwise#close()
     " if enwise is not enabled, just return
     if !get(b:, 'enwise') | return '' | endif
 
-    " if current position is not at EOL, just return a newline
-    if match(getline('.'), '^\s*$') == -1 | return "\<ESC>==O" | endif
-
     let line = getline(line('.') - 1)
+    
+    " if current position is not at EOL
+    if match(getline('.'), '^\s*$') == -1
+        let column = col('.')
+        let char_before = line[-1:]
+        let char_after = getline('.')[column - 1]
+
+        " If cursor is inside matching brackets, push everything after cursor down two lines.
+        if s:is_matching_brackets(char_before, char_after)
+            return "\<ESC>==O"
+        endif
+        
+        return '' 
+    endif
+
     let missing_brackets = s:get_missing_brackets(line)
     if empty(missing_brackets)
         return ''
     else
         return missing_brackets."\<ESC>==O"
     endif
+endf
+
+function! s:is_matching_brackets(ax, bx)
+    let left = ['{', '(', '[']
+    let right = ['}', ')', ']']
+    
+    let i = 0
+    while i <= 2
+        if a:ax ==# left[i] && a:bx ==# right[i]
+            return 1
+        endif
+        let i += 1
+    endwhile
+
+    return 0
 endf
 
 function! s:get_missing_brackets(line)
