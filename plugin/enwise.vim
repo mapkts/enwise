@@ -1,11 +1,11 @@
-if !get(g:, "enwise_enable_global")
-    let g:enwise_enable_global = 0
+if !get(g:, "enwise_enable_globally")
+    let g:enwise_enable_globally = 0
 endif
 
 augroup enwise
     autocmd!
 
-    autocmd Filetype * if g:enwise_enable_global | let b:enwise = 1 | endif
+    autocmd Filetype * if g:enwise_enable_globally | let b:enwise = 1 | endif
 
     autocmd Filetype c,cpp,cs,rust,java,javascript,typescript,javascript.jsx,javascriptreact,typescriptreact,php
         \ let b:enwise = 1 |
