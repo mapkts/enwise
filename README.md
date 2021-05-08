@@ -6,7 +6,7 @@ A vim plugin that allows you to use `Enter` key to close brackets.
 
 # Installation
 
-Add this to your `~/.vimrc` if you are using [`vim-plug`]:
+If you are a [vim-plug] user, add this to your `vimrc`:
 
 ```vim
 Plug 'mapkts/enwise'
@@ -106,9 +106,9 @@ after
 
 ## Customization
 
-- `enwise` only closes brackets for a list of supported languages ([see-here]). In order to bypass this limitation, put `let g:enwise_enable_global = 1` in your vimrc to enable it globally.
+- `enwise` only closes brackets for a list of supported languages ([see here]). In order to bypass this limitation, put `let g:enwise_enable_global = 1` in your vimrc to enable it globally.
 
-[see-here]: https://github.com/mapkts/vim-encloser/blob/master/plugin/encloser.vim
+[see here]: https://github.com/mapkts/vim-encloser/blob/master/plugin/encloser.vim
 
 - Calling `:EnwiseToggle` will toggle `enwise` on and off. You might want to temporarily disable this plugin when writing some syntax extension code, like Rust macros. 
 
