@@ -4,7 +4,7 @@ A vim plugin that allows you to use `Enter` key to close brackets.
 
 ![](https://raw.githubusercontent.com/mapkts/enwise/master/screenshot.gif)
 
-# Installation
+## Installation
 
 If you are a [vim-plug] user, add this to your `vimrc`:
 
