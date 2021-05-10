@@ -1,8 +1,10 @@
 # enwise
 
-A vim plugin that allows you to use `Enter` key to close brackets.
+A vim plugin that allows you to use `Enter` key to close unbalanced brackets.
 
 ![](https://raw.githubusercontent.com/mapkts/enwise/master/screenshot.gif)
+
+I always felt a bit awkward when using auto-pairing plugins in Vim. The auto-generated closing brackets not only save no keystrokes (advancing past the closing brackets requires typing the same keys), but also cause a lot of distractions when coding. What `enwise` does is to only close brackets when you have pressed the `Enter` key, so you gain the advantages of auto-pairing and eyes-concentration. I've seen lots of advanced Vim users play Vim well without using any auto-pairing plugins, but as a Vim newbie I found bringing this plugin into my daily workflow really helpful.
 
 ## Installation
 
@@ -58,7 +60,7 @@ println!("brackets: {{([ {} {}"
 )
 ```
 
-- Press enter at non-eol position will push contents after cursor down the line
+- Press enter inside non-eol brackets will push contents after the cursor down two lines
 
 before
 
@@ -106,9 +108,9 @@ after
 
 ## Customization
 
-- `enwise` only closes brackets for a list of supported languages ([see here]). In order to bypass this limitation, put `let g:enwise_enable_global = 1` in your vimrc to enable it globally.
+- `enwise` only closes brackets for a list of supported languages ([see here]). In order to bypass this limitation, put `let g:enwise_enable_globally = 1` in your vimrc to enable it globally.
 
-[see here]: https://github.com/mapkts/vim-encloser/blob/master/plugin/encloser.vim
+[see here]: https://github.com/mapkts/enwise/blob/master/plugin/enwise.vim
 
 - Calling `:EnwiseToggle` will toggle `enwise` on and off. You might want to temporarily disable this plugin when writing some syntax extension code, like Rust macros. 
 
@@ -117,6 +119,10 @@ Note that you can create a mapping for this command like so:
 ```vim
 nnoremap <leader>te :EnwiseToggle<CR>
 ```
+
+## Bug Report
+
+Currently the languages `Enwise` supported is limited. If you have encountered any bugs or inconvenience when using this plugin, please don't hesitate to open a issue.
 
 ## License
 
