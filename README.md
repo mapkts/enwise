@@ -8,13 +8,13 @@ I always felt a bit awkward when using auto-pairing plugins in Vim. The auto-gen
 
 ## Installation
 
-If you are a [vim-plug] user, add this to your `vimrc`:
+Install `enwise` with your favorite plugin manager, e.g [vim-plug]:
 
 ```vim
 Plug 'mapkts/enwise'
 ```
 
-or install manually by coping this repo to `~/.vim/plugin`.
+or install manually by coping this repo to `~/.vim/pack/vendor/start/` (Vim 8+ only).
 
 [vim-plug]: https://github.com/junegunn/vim-plug
 
