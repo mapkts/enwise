@@ -4,7 +4,7 @@ A vim plugin that allows you to use `Enter` key to close unbalanced brackets.
 
 ![](https://raw.githubusercontent.com/mapkts/enwise/master/screenshot.gif)
 
-I always felt a bit awkward when using auto-pairing plugins in Vim. The auto-generated closing brackets not only save no keystrokes (advancing past the closing brackets requires typing the same keys), but also cause a lot of distractions when coding. What `enwise` does is to only close brackets when you have pressed the `Enter` key, so you gain the advantages of auto-pairing and eyes-concentration. I've seen lots of advanced Vim users play Vim well without using any auto-pairing plugins, but as a Vim newbie I found bringing this plugin into my daily workflow really helpful.
+I always feel a bit awkward when using auto-pairing plugins in Vim. The auto-generated closing brackets not only save no keystrokes (advancing past the closing brackets requires typing the same keys), but also cause a lot of distractions when coding. What `enwise` does is to only close brackets when you have pressed the `Enter` key, so you gain the advantages of auto-pairing and eyes-concentration. I've seen lots of advanced Vim users play Vim well without using any auto-pairing plugins, but as a Vim newbie I found bringing this plugin into my daily workflow really helpful.
 
 ## Installation
 
