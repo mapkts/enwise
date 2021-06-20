@@ -109,14 +109,14 @@ endf
 function! s:strip_comments(text)
     let text = a:text
     
-    " strip multi-line comments if b:enwise_bcomment_matcher was set
-    let matcher = get(b:, 'enwise_bcomment_matcher')
+    " strip multi-line comments if b:enwise_bc_matcher was set
+    let matcher = get(b:, 'enwise_bc_matcher')
     if !empty(matcher)
         let text = s:strip_multiline_comments(text)
     endif
     
-    " strip single-line comments if b:enwise_lcomment_matcher was set
-    let matcher = get(b:, 'enwise_lcomment_matcher')
+    " strip single-line comments if b:enwise_lc_matcher was set
+    let matcher = get(b:, 'enwise_lc_matcher')
     if !empty(matcher)
         let text = substitute(text, matcher, '', 'g')
     endif
