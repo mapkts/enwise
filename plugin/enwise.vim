@@ -9,25 +9,25 @@ augroup enwise
 
     autocmd Filetype c,cpp,cs,rust,java,javascript,typescript,javascript.jsx,javascriptreact,typescriptreact,php
         \ let b:enwise = 1 |
-        \ let b:enwise_bcomment_matcher = '^\*.*$' |
-        \ let b:enwise_lcomment_matcher = '\(\/\/.*\|\/\*.*\*\/\)'
+        \ let b:enwise_bc_matcher = '^\*.*$' |
+        \ let b:enwise_lc_matcher = '\(\/\/.*\|\/\*.*\*\/\)'
 
-    " Unstable hack to strip Rust lifetime 'a, 'abc
+    " Hack to strip Rust lifetime 'a, 'abc
     autocmd Filetype rust
-        \ let b:enwise_lcomment_matcher =  '\(\/\/.*\|\/\*.*\*\/\|''[_a-zA-Z]\+\)'
+        \ let b:enwise_lc_matcher =  '\(\/\/.*\|\/\*.*\*\/\|''[_a-zA-Z]\+\)'
 
     autocmd Filetype css
         \ let b:enwise = 1 |
-        \ let b:enwise_bcomment_matcher = '^\*.*$' |
-        \ let b:enwise_lcomment_matcher = '\/\*.*\*\/'
+        \ let b:enwise_bc_matcher = '^\*.*$' |
+        \ let b:enwise_lc_matcher = '\/\*.*\*\/'
 
     autocmd Filetype python
         \ let b:enwise = 1 |
-        \ let b:enwise_lcomment_matcher = '\#.*'
+        \ let b:enwise_lc_matcher = '\#.*'
 
     autocmd Filetype go
         \ let b:enwise = 1 |
-        \ let b:enwise_lcomment_matcher = '\/\/.*'
+        \ let b:enwise_lc_matcher = '\/\/.*'
 
     autocmd Filetype vim
         \ let b:enwise = 1
