@@ -5,8 +5,6 @@ endif
 augroup enwise
     autocmd!
 
-    autocmd Filetype * if g:enwise_enable_globally | let b:enwise = 1 | endif
-
     autocmd Filetype c,cpp,cs,rust,java,javascript,typescript,javascript.jsx,javascriptreact,typescriptreact,php
         \ let b:enwise = 1 |
         \ let b:enwise_bc_matcher = '^\*.*$' |
@@ -31,8 +29,10 @@ augroup enwise
 
     autocmd Filetype vim
         \ let b:enwise = 1
+        
+    autocmd BufEnter * if g:enwise_enable_globally | let b:enwise = 1 | endif
 
-    autocmd Filetype * call enwise#try_enable()
+    autocmd BufEnter * call enwise#try_enable()
 augroup END
 
 inoremap <silent> <Plug>(EnwiseClose) <C-R>=enwise#close()<CR>
