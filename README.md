@@ -23,7 +23,7 @@ or install manually by coping this repo to `~/.vim/pack/vendor/start/` (Vim 8+ o
 - Free you mind from closing unbalanced brackets `{` `(` `[`.
 - Respect your tab size and space size when inserting newline.
 - Smart enough to escape brackets inside quoted string.
-- Behave soundly when you press enter before some trailing characters in cursorline.
+- Behave soundly when you press enter in the middle of a line.
 - Brackets inside comments like `// {` `/* { */` are normally escaped.
 
 ## Examples
