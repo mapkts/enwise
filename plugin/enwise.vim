@@ -1,38 +1,42 @@
 if !get(g:, "enwise_enable_globally")
-    let g:enwise_enable_globally = 0
+  let g:enwise_enable_globally = 0
+endif
+
+if !get(g:, "enwise_disable_mappings")
+  let g:enwise_disable_mappings = 0
 endif
 
 augroup enwise
-    autocmd!
+  autocmd!
 
-    autocmd Filetype c,cpp,cs,rust,java,javascript,typescript,javascript.jsx,javascriptreact,typescriptreact,php
+  autocmd Filetype c,cpp,cs,rust,java,javascript,typescript,javascript.jsx,javascriptreact,typescriptreact,php
         \ let b:enwise = 1 |
         \ let b:enwise_bc_matcher = '^\*.*$' |
         \ let b:enwise_lc_matcher = '\(\/\/.*\|\/\*.*\*\/\)'
 
-    " Hack to strip Rust lifetime 'a, 'abc
-    autocmd Filetype rust
+  " Hack to strip Rust lifetime 'a, 'abc
+  autocmd Filetype rust
         \ let b:enwise_lc_matcher =  '\(\/\/.*\|\/\*.*\*\/\|''[_a-zA-Z]\+\)'
 
-    autocmd Filetype css
+  autocmd Filetype css
         \ let b:enwise = 1 |
         \ let b:enwise_bc_matcher = '^\*.*$' |
         \ let b:enwise_lc_matcher = '\/\*.*\*\/'
 
-    autocmd Filetype python
+  autocmd Filetype python
         \ let b:enwise = 1 |
         \ let b:enwise_lc_matcher = '\#.*'
 
-    autocmd Filetype go
+  autocmd Filetype go
         \ let b:enwise = 1 |
         \ let b:enwise_lc_matcher = '\/\/.*'
 
-    autocmd Filetype vim
+  autocmd Filetype vim
         \ let b:enwise = 1
-        
-    autocmd BufEnter * if g:enwise_enable_globally | let b:enwise = 1 | endif
 
-    autocmd BufEnter * call enwise#try_enable()
+  autocmd BufEnter * if g:enwise_enable_globally | let b:enwise = 1 | endif
+
+  autocmd BufEnter * if !g:enwise_disable_mappings | call enwise#try_enable() | endif
 augroup END
 
 inoremap <silent> <Plug>(EnwiseClose) <C-R>=enwise#close()<CR>

@@ -112,9 +112,14 @@ after
 
 [see here]: https://github.com/mapkts/enwise/blob/master/plugin/enwise.vim
 
-- Calling `:EnwiseToggle` will toggle `enwise` on and off. You might want to temporarily disable this plugin when writing some syntax extension code, like Rust macros. 
+- By default this plugin takes control of the enter key if `<CR>` hasn't been mapped yet. If you want to overload the enter key, put `let g:enwise_disable_mappings = 1` in your vimrc before creating a conditional mapping. e.g.:
 
-Note that you can create a mapping for this command like so:
+```vim
+" Use <CR> to navigate completion menu (if pumvisible) or close brackets.
+inoremap <silent><expr> <CR> pumvisible() ? "\<C-N>" : "\<CR>\<Plug>(EnwiseClose)"
+```
+
+- Calling `:EnwiseToggle` will toggle `enwise` on and off. You might want to temporarily disable this plugin when writing some syntax extension code (e.g. Rust macros). Note that you can create a mapping for this command like so:
 
 ```vim
 nnoremap <leader>te :EnwiseToggle<CR>
