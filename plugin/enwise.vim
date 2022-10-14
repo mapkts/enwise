@@ -36,7 +36,7 @@ augroup enwise
 
   autocmd BufEnter * if g:enwise_enable_globally | let b:enwise = 1 | endif
 
-  autocmd BufEnter * if !g:enwise_disable_mappings | call enwise#try_enable() | endif
+  autocmd BufEnter * call enwise#try_enable()
 augroup END
 
 inoremap <silent> <Plug>(EnwiseClose) <C-R>=enwise#close()<CR>

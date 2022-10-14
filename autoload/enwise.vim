@@ -10,7 +10,7 @@ let g:enwise_default_escape_leaders = ['\']
 
 function! enwise#try_enable()
     let mapped = maparg('<CR>', 'i')
-    if mapped ==# '' && get(b:, 'enwise') ==# 1
+    if !g:enwise_disable_mappings && mapped ==# '' && get(b:, 'enwise') ==# 1
         imap <CR> <CR><Plug>(EnwiseClose)
     endif
 endf

@@ -116,7 +116,7 @@ after
 
 ```vim
 " Use <CR> to navigate completion menu (if pumvisible) or close brackets.
-inoremap <silent><expr> <CR> pumvisible() ? "\<C-N>" : "\<CR>\<Plug>(EnwiseClose)"
+imap <silent><expr> <CR> pumvisible() ? "\<C-N>" : "\<CR>\<Plug>(EnwiseClose)"
 ```
 
 - Calling `:EnwiseToggle` will toggle `enwise` on and off. You might want to temporarily disable this plugin when writing some syntax extension code (e.g. Rust macros). Note that you can create a mapping for this command like so:
