@@ -130,8 +130,4 @@ nnoremap <leader>te :EnwiseToggle<CR>
 
 ## Bug Report
 
-Currently the languages `Enwise` supported is limited. If you have encountered any bugs or inconvenience when using this plugin, please don't hesitate to open a issue.
-
-## License
-
-Licensed under the terms of the [MIT license](./LICENSE).
+Currently the languages `enwise` supported is limited. If you have encountered any bugs or inconvenience when using this plugin, please don't hesitate to open a issue.
