@@ -6,6 +6,10 @@ if !get(g:, "enwise_disable_mappings")
   let g:enwise_disable_mappings = 0
 endif
 
+if !get(g:, "enwise_auto_semicolon")
+    let g:enwise_auto_semicolon = 0
+endif
+
 augroup enwise
   autocmd!
 

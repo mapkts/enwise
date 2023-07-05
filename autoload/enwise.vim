@@ -8,6 +8,10 @@ let g:enwise_loaded = 1
 let g:enwise_default_escapes = ['''', '"']
 let g:enwise_default_escape_leaders = ['\']
 
+let s:default_semicolon_startswith = {
+    \ 'rust': ['let', 'const', 'static', 'use', 'pub'],
+\ }
+
 function! enwise#try_enable()
     let mapped = maparg('<CR>', 'i')
     if !g:enwise_disable_mappings && mapped ==# '' && get(b:, 'enwise') ==# 1
@@ -51,7 +55,21 @@ function! enwise#close()
     if empty(missing_brackets)
         return ''
     else
-        return missing_brackets."\<ESC>==O"
+        let optional_semicolon = '' 
+        if g:enwise_auto_semicolon
+            if missing_brackets[-1:] == ')'
+                let optional_semicolon = ';' 
+            endif
+
+            let firstword = split(line)[0]
+            let startswith = get(g:, 'enwise_semicolon_startswith', s:default_semicolon_startswith)
+            if index(startswith[&filetype], firstword) >= 0
+                \ || index(s:default_semicolon_startswith[&filetype], firstword) >= 0
+               let optional_semicolon = ';' 
+            endif
+        endif
+
+        return missing_brackets.optional_semicolon."\<ESC>==O"
     endif
 endf
 
